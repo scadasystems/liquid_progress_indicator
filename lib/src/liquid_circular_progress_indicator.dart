@@ -42,10 +42,10 @@ class LiquidCircularProgressIndicator extends ProgressIndicator {
   }
 
   Color _getBackgroundColor(BuildContext context) =>
-      backgroundColor ?? Theme.of(context).backgroundColor;
+      backgroundColor ?? Theme.of(context).colorScheme.background;
 
   Color _getValueColor(BuildContext context) =>
-      valueColor?.value ?? Theme.of(context).accentColor;
+      valueColor?.value ?? Theme.of(context).colorScheme.primary;
 
   @override
   State<StatefulWidget> createState() =>
@@ -113,8 +113,8 @@ class _CircleBorderPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = width!;
     final newSize = Size(size.width - width!, size.height - width!);
-    canvas.drawArc(
-        Offset(width! / 2, width! / 2) & newSize, 0, _sweep, false, borderPaint);
+    canvas.drawArc(Offset(width! / 2, width! / 2) & newSize, 0, _sweep, false,
+        borderPaint);
   }
 
   @override
